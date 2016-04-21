@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+    function fn1(){alert(1)};
+    function fn2(){alert(2)};
+    fn3=fn2.call;
+    fn2.call(fn1);//请问输出什么结果，为什么
+    fn3.call(fn1);
+
+</script>
+</body>
+</html>

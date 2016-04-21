@@ -23,7 +23,7 @@
     //弊端:每创建一个都添加到页面中,引发了多次的DOM回流,相对字符串拼接的方式,比较的耗性能
     //~function () {
     //    for (var i = 0, len = jsonData.length; i < len; i++) {
-    //        var curData = jsonData[i];
+    //        var curData = jsonData[i]
     //
     //        var oLi = document.createElement("li");
     //        for (var key in curData) {

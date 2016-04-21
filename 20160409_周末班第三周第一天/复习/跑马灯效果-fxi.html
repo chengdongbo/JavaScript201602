@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head >
+    <meta charset="UTF-8">
+    <title>跑马灯效果复习</title>
+    <style type="text/css">
+         *{
+        margin: 0;
+        padding:0;
+        font-size: 14px;
+        }
+        #box{
+            margin: 50px auto;
+            width:80%;
+            height: 50px;
+            line-height: 50px;
+            border:1px solid red;
+            background-color: lightgreen;
+        }
+        #box #wrap{
+            white-space: nowrap;
+            overflow: hidden;
+        }
+         #box #wrap span{
+             color:red;
+             font-weight: bold;
+         }
+        #wrap div{
+            display: inline-block;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="wrap">
+        <div id="beginCon"><span>通知:</span>我们是先学习再考试,考试通过了才交学费;珠峰有完善的教学管理,考试和激励引导制度帮你不但学的会还要学的好!就业是我们的强项，平均就业工资超过12K。不但让你找到工作，还要能胜任工作。郑重承诺:工资低于9K退学费。
+        </div>
+        <div><span>通知:</span>我们是先学习再考试,考试通过了才交学费;珠峰有完善的教学管理,考试和激励引导制度帮你不但学的会还要学的好!就业是我们的强项，平均就业工资超过12K。不但让你找到工作，还要能胜任工作。郑重承诺:工资低于9K退学费。
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="uiltsC.js"></script>
+<script type="text/javascript">
+
+    var wrap = document.getElementById("wrap");
+    var beginCon = document.getElementById("beginCon");
+    var beginConWidth = uiltsC.getCss(beginCon, "width");
+    var timer = window.setInterval(function () {
+        var curleft = wrap.scrollLeft;
+        if (curleft > beginConWidth) {
+            wrap.scrollLeft = 0;
+        }
+        wrap.scrollLeft = curleft + 1;
+
+    }, 10)
+
+
+     wrap.onmouseover = function(){
+        window.clearInterval(timer);
+    }
+
+    wrap.onmouseout = function(){
+
+    }
+
+
+
+
+</script>
+</body>
+</html>

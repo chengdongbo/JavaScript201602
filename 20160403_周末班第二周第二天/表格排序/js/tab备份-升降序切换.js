@@ -27,10 +27,11 @@
         headList[1].flag *= -1;//->每一次点击都在自己标识的基础上*=-1
 
         var ary = utils.listToArray(oLis);
+        console.log(ary.length);
         ary.sort(function (a, b) {
             var curInn = a.getElementsByTagName("span")[1].innerHTML;
             var nexInn = b.getElementsByTagName("span")[1].innerHTML;
-            var curInnNum = parseFloat(curInn), nexInnNum = parseFloat(nexInn);
+            var curInnNum = parseFloat(curInn),nexInnNum = parseFloat(nexInn);
             return (curInnNum - nexInnNum) * headList[1].flag;
         });
 

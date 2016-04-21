@@ -189,7 +189,8 @@
             effect = effect.length >= 2 ? zhufengEffect[effect[0]][effect[1]] : zhufengEffect[effect[0]];
         } else if (typeof effect === "undefined") {
             effect = zhufengEffect.Linear;
-        } else if (typeof effect === "function") {
+        }
+        else if (typeof effect === "function") {
             callBack = effect;
             effect = zhufengEffect.Linear;
         }

@@ -41,9 +41,9 @@
     //1)鼠标事件对象(它是MouseEvent这个类的一个实例,它是一个对象数据类型值;鼠标事件对象(包含很多自己的私有属性)->MouseEvent.prototype(initMouseEvent/getModifierState)->UIEvent.prototype(initUIEvent)->Event.prototype(initEvent/preventDefault/stopImmediatePropagation/stopPropagation)->Object.prototype)
 
     //2)键盘事件对象(它是KeyboardEvent这个类的一个实例;键盘事件对象(包含很多自己的私有的属性)->KeyboardEvent.prototype(getModifierState/initKeyboardEvent)->UIEvent.prototype->Event.prototype->Object.prototype)
-    //    oBox.onclick = function () {
-    //        console.dir(arguments[0]);
-    //    };
+        oBox.onclick = function () {
+            console.dir(arguments[0]);
+        };
     //    document.onkeyup=function(){
     //      /**/  console.dir(arguments[0]);
     //    };

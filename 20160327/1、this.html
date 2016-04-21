@@ -98,20 +98,28 @@
     //    ary.__proto__.pop();//->pop中的this是ary.__proto__
 
     //    fn.call.call.call.call.call();//->call方法中的this是fn.call.call.call.call
+//
+//    function fn() {
+//        console.log(this.num);
+//    }
+//    var num = 12;
+//    var obj = {num: 120, fn: fn};
+//    oDiv.onclick = (function () {
+//        console.log(this.num);//->this是window ->12
+//        return function () {
+//            console.log(this.num);//->this是oDiv ->undefined
+//            fn();//->fn中的this是window ->12
+//            obj.fn();//->fn中的this是obj ->120
+//        }
+//    })();
 
-    function fn() {
-        console.log(this.num);
-    }
-    var num = 12;
-    var obj = {num: 120, fn: fn};
-    oDiv.onclick = (function () {
-        console.log(this.num);//->this是window ->12
-        return function () {
-            console.log(this.num);//->this是oDiv ->undefined
-            fn();//->fn中的this是window ->12
-            obj.fn();//->fn中的this是obj ->120
-        }
-    })();
+//    if(document.body){
+//        alert("true");
+//    }else{
+//        alert("false");
+//    }
+    alert([]);
+
 </script>
 </body>
 </html>

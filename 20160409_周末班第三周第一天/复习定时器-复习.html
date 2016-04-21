@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head >
+    <meta charset="UTF-8">
+    <title>复习定时器-复习</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+
+//    var n = null;
+//
+//    var timer = window.setInterval(function () {
+//        if(n===5){
+//            window.clearInterval(timer);
+//        }
+//        n++;
+//        console.log(n);
+//    },1000)
+
+    //利用settimeout 实现数字的叠加倒数
+
+    var n=0;
+    var timer = null;
+    function move(){
+        n++;
+        console.log(n);
+        if(n===5){
+            return;
+        };
+        timer = setTimeout(move,1000);
+    }
+
+    move();
+
+
+
+
+</script>
+</body>
+</html>

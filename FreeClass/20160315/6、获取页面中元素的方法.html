@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <style type="text/css">
+        #div1{
+            width:200px;
+            height:200px;
+            background-color: #0fb200;
+            margin:0 auto;
+        }
+    </style>
 </head>
 <body>
 <div id="div1">
     <div class="w1 w2 w3" name="zhufeng"></div>
     <div class="w1 w2"></div>
-    <div class="w2 w3" id="div1">
+    <div class="w2 w3" id="div2">
         <div class="w3"></div>
         <div class="w1" name="zhufeng"></div>
     </div>
@@ -30,6 +38,7 @@
     //    <div id="zhufeng"></div>
 
     //3)在JS中我们可以直接使用元素的ID获取这个元素,不需要使用getElementById获取(不推荐)
+
     //    div1.style.width = "300px";
     //    div1.style.height = "300px";
     //    div1.style.backgroundColor = "red";

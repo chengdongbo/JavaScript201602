@@ -63,7 +63,7 @@
     function fn() {
         console.log(this);
     }
-
+    window.setTimeout(fn.call(obj), 1000)
     //window.setTimeout(fn, 1000);//->1000ms后执行fn,fn中的this->window
     //window.setTimeout(fn.call(obj), 1000);//->在设置定时器的时候,我们就把fn的this改变为obj,并且让fn执行了,把执行的结果undefined放在定时器中 ->window.setTimeout(undefined, 1000);
     //window.setTimeout(fn.bind(obj), 1000);//->在创建定时器的时候,通过bind把fn中的this预先处理为obj,当1000ms后在执行fn的时候,this就已经变为了obj
@@ -76,17 +76,17 @@
     //    };
 
     //->使用柯理化函数的思想来封装我们的myBind方法(模拟内置的bind),实现兼容所有的浏览器
-    Function.prototype.myBind = function myBind(context) {
-        context = context || window;
-        var tempFn = this;
-        var outArg = Array.prototype.slice.call(arguments, 1);
-        return function () {
-            var innArg = Array.prototype.slice.call(arguments, 0);
-            var arg = outArg.concat(innArg);
-            tempFn.apply(context, arg);
-        }
-    };
-    fn.myBind(obj, 100, 200);
+//    Function.prototype.myBind = function myBind(context) {
+//        context = context || window;
+//        var tempFn = this;
+//        var outArg = Array.prototype.slice.call(arguments, 1);
+//        return function () {
+//            var innArg = Array.prototype.slice.call(arguments, 0);
+//            var arg = outArg.concat(innArg);
+//            tempFn.apply(context, arg);
+//        }
+//    };
+//    fn.myBind(obj, 100, 200);
 </script>
 </body>
 </html>

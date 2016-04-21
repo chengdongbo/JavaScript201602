@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head >
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>多张图片的延迟加载</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            paddign: 0;
+            font-size:14px;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        img {
+            display: block;
+            border: none;
+        }
+
+        #news {
+            padding: 10px;
+        }
+
+        #news li {
+            height: 70px;
+            paddding: 5px;
+            position: relative;
+        }
+
+        #news li>div:nth-child(1) {
+            width: 60px;
+            height: 65px;
+            line-height: 65px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: url("img/default.gif") no-repeat center center #cccccc;
+        }
+
+        #news li>div:nth-child(1) img {
+            width: 100%;
+            height: 100%;
+            display: none;
+            opacity: 0;
+        }
+        #news li>div:last-child{
+            margin-left:63px;
+        }
+        #news li>div:last-child h2{
+            height:20px;
+            line-height: 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        #news li>div:last-child p{
+            margin-top: 2px;
+            height:20px;
+            line-height: 20px;
+            font-size: 12px;
+        }
+
+    </style>
+</head>
+<body>
+<ul id="news">
+    <li>
+        <div id="img">
+            <img src="" trueImg="img/i.jpg"/>
+        </div>
+        <div id="con">
+            <h2>网络强国战略习近平与“十三五”十四大战略</h2>
+            <p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>
+        </div>
+    </li>
+</ul>
+
+<script type="text/javascript" src="utils.js"></script>
+<script type="text/javascript">
+    var oUl = document.getElementById("news");
+    var oDiv = document.getElementById("img"), oImg = document.getElementsByTagName("img");
+
+    ~function () {
+        var xhr = new XMLHttpRequest;
+        //URL地址后面加的随机数是在清除每一次请求数据时候(GET请求)产生的缓存
+        xhr.open("get", "json/newsList.txt?_=" + Math.random(), false);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && /^2\d{2}$/.test(xhr.status)) {
+                var val = xhr.responseText;
+                jsonData = utils.formatJSON(val);
+            }
+        };
+        xhr.send(null);
+    }();
+
+
+    //绑定数据
+    +function () {
+        if (jsonData) {//先队可以进行逐个绑定的条件进行判断
+            var str = "";
+            for (var i = 0, len = jsonData.length; i < len; i++) {
+                var curData = jsonData[i];
+                str += '<li>';
+                //获取对象的两种方式obj.属性名或者obj["属性名"]
+                str += '<div><img src="" trueImg="' + curData["img"] + '"/></div>'
+                str += '<div>'
+                str += '<h2>' + curData["title"] + '</h2>'
+                str += '<p>' + curData["desc"] + '</h2>'
+                str += '</div>'
+                str += '</li>';
+            }
+            oUl.innerHTML = str;
+
+        }
+
+    }();
+
+
+    //    var obj = {
+    //        zhufeng:"zhufeng",
+    //        cheng:"chengdongbo"
+    //    };
+    ////    console.log(obj.cheng);
+    //console.log(obj["cheng"]);
+
+    //编写一个图片加载的方法
+    function lazyImg(curImg) {
+        var img = new Image;
+        img.src = curImg.getAttribute("trueImg");
+        img.onload = function () {
+            curImg.src = this.src;
+            curImg.style.display = "block";
+            fadaIn(curImg);
+            img = null;
+        }
+        img.finish = true;
+    }
+
+
+    //实现渐现效果（设计到动画，用定时器来解决）
+    function fadaIn(curImg) {
+        var duration = 500, interval = 10, target = 1;
+        var step = target / duration * interval;
+        var timer = window.setInterval(function () {
+            var curOpc = utils.getCss(curImg, "opacity");
+            if (curOpc >= 1) {
+                curImg.style.opacity = 1;
+                window.clearInterval(timer);
+                return
+            }
+            curOpc += step;
+            curImg.style.opacity = curOpc;
+        }, interval)
+    }
+
+    //循环处理每个图片
+    function handAll() {
+        for (var i = 0; i < oImg.length; i++) {
+            var curImg = oImg[i];
+            if(curImg.finish){
+                continue;
+            }
+            var curImgPar = curImg.parentNode;
+            var A = utils.offset(curImgPar).top + curImgPar.offsetHeight, B = utils.win("scrollTop") + utils.win("clientHeight");
+            //在标准的IE8浏览器中,我们使用offsetLeft/offsetTop其实是把父级参照物的边框已经算在内了,所以我们不需要自己在单独的加边框了，所以我们才写了一个兼容的方法，因为在加父级参照物的边框和偏移量是IE8和标准浏览器的处理是不一样的，IE8 中 offsetleft和offsettop就已经包括了父级参照物的边框了
+            //因为win方法在获取相对应的属性值的时候，需要传递一个字符串形式的数据进入的时候才能够正常的获取到值。
+            if (A < B) {
+                lazyImg(curImg);
+            }
+
+            console.log("ok");
+        }
+    }
+
+    //执行方法
+    window.setTimeout(handAll,500);
+    window.onscroll = handAll;//handAll 是方法赋值给监听事件，如果是handall（）是把方法执行的值赋值给监听事件
+
+</script>
+</body>
+</html>

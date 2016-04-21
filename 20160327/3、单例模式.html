@@ -54,35 +54,41 @@
     //例如：百度首页->"搜素"、"登录"、"换肤"、"页卡"、"天气"
 
     //->不想冲突的话,我们可以使用闭包
-    var utils = (function () {
-        return {
-            fn: function () {
-
-            }
-        }
-    })();
-
-
-    var searchModel = (function () {
-        var check = function () {
-            //->调用自己命名空间下的submit方法
-            //this->searchModel
-            this.submit();
-        };
-        var submit = function () {
-            //->调用公共模块下的fn方法
-            utils.fn();
-        };
-
-        return {
-            check: check,
-            submit: submit
-        }
-    })();
-    searchModel.check();
+//    var utils = (function () {
+//        return {
+//            fn: function () {
+//
+//            }
+//        }
+//    })();
+//
+//
+//    var searchModel = (function () {
+//        var check = function () {
+//            //->调用自己命名空间下的submit方法
+//            //this->searchModel
+//            this.submit();
+//        };
+//        var submit = function () {
+//            //->调用公共模块下的fn方法
+//            utils.fn();
+//        };
+//
+//        return {
+//            check: check,
+//            submit: submit
+//        }
+//    })();
+//    searchModel.check();
 
     //->单例模式是我们前端JS,目前实现模块化开发,最常用的一种形式
     //->require.js、sea.js他们这个些类库的实现原理和上面的源码思想是基本一样的
+
+    var ary=[1,2,3,4];
+    function fn(ary){
+        ary[0]=0;    ary=[0];    ary[0]=100;    return ary;
+    }
+    var res=fn(ary);    console.log(ary);    console.log(res);
 </script>
 </body>
 </html>

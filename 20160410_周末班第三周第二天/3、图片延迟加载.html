@@ -44,6 +44,7 @@
         if (banner.isLoad) {//->已经加载过了
             return;
         }
+
         var A = banner.offsetHeight + utils.offset(banner).top;
         var B = utils.win("clientHeight") + utils.win("scrollTop");
         if (A < B) {

@@ -22,10 +22,13 @@
 <script type="text/javascript">
     //1、动态创建元素标签
     var oDiv1 = document.createElement("div");//->动态的创建一个叫做div的元素标签
+    var oDiv2 = document.createElement("div");
+    oDiv2.style.border="1px solid red";
     oDiv1.id = "div1";
     oDiv1.className = "box";
     oDiv1.style.backgroundColor = "red";
     oDiv1.innerHTML = "珠峰培训";
+
 
     //2、把动态创建的元素标签增加到页面中
     document.body.appendChild(oDiv1);//->把oDiv1这个元素标签添加到body的末尾位置

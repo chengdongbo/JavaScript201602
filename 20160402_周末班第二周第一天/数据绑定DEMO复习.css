@@ -1,0 +1,55 @@
+html,body,div,h2,ul,li{
+    margin: 0;
+    padding:0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+ul,li{
+    list-style: none;
+}
+#tab{
+    width: 500px;
+    margin: 20px auto;
+    border:1px solid gray;
+
+    border-radius: 3px;
+    -webkit-box-shadow: 3px 3px 5px  gray;
+    -moz-box-shadow: 3px 3px 5px  gray;
+    box-shadow: 3px 3px 5px  gray;
+}
+#tab h2{
+    height: 35px;
+    line-height: 35px;
+    background-color: blue;
+}
+#tab h2 span{
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+.cursor{
+    cursor: pointer;
+}
+#tab ul{
+
+
+}
+#tab ul li{
+    height: 30px;
+    line-height: 30px;
+
+}
+#tab ul li span{
+    width: 25%;
+    float: left;
+    text-align: center;
+
+}
+#tab ul li:nth-child(even){
+    background-color: bisque;
+}
+#tab ul li:hover{
+    background-color: chartreuse;
+}

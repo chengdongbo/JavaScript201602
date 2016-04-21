@@ -256,6 +256,7 @@ var utils = (function () {
     //->setCss:给当前元素的某一个样式属性设置值(增加在行内样式上的)
     function setCss(attr, value) {
         if (attr === "float") {
+            console.log(value)
             this["style"]["cssFloat"] = value;
             this["style"]["styleFloat"] = value;
             return;
@@ -271,7 +272,7 @@ var utils = (function () {
                 value += "px";
             }
         }
-        this["style"][attr] = value;
+        this.style[attr] = value;
     }
 
     //->setGroupCss:给当前元素批量的设置样式属性值

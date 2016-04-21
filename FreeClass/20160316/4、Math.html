@@ -35,6 +35,15 @@
     //    for (var i = 0; i < 10000; i++) {
     //        console.log(Math.round(Math.random() * 52 + 12));
     //    }
+
+    function fn(i){
+        return function (n) {
+            console.log(n*(++i));
+        }
+    }
+
+    var f=fn(2);
+    f(3);
 </script>
 </body>
 </html>

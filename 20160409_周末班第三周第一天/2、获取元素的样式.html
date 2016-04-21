@@ -41,7 +41,7 @@
     //->window.getComputedStyle(当前要操作的元素对象, 当前元素的伪类[一般我们不用伪类写null])
     //->获取的结果是CSSStyleDeclaration这个类的一个实例:包含了当前元素的所有样式属性和值
     //console.log(window.getComputedStyle);//->function getComputedStyle() { [native code] }
-    //console.log(window.getComputedStyle(box, null)["height"]);
+    console.log(window.getComputedStyle(box, null));
 
     //3、方法虽然好用,但是在IE6~8下是不兼容的:因为window下没有getComputedStyle这个属性->在IE6~8下执行这个方法会报错
     //console.log(window.getComputedStyle);//->undefined
@@ -131,6 +131,8 @@
     //    console.log(getCss(box, "fontFamily"));
     //->标准浏览器和IE浏览器获取的结果还是不一样的->对于部分样式属性,不同浏览器获取的结果不一样,主要是由于getComputedStyle和currentStyle在某些方面不一样
     console.log(getCss(box, "marginTop"));
+
+    ge
 </script>
 </body>
 </html>

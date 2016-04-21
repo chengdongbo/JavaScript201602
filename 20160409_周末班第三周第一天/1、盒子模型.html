@@ -77,16 +77,16 @@
     //如果只传递了attr没有传递value,默认的意思是“获取”
     //如果两个参数都传递了,意思是“设置”
     //->不严谨的来说这就是有关于"类的重载":同一个方法,通过传递参数的不同实现了不同的功能
-    function win(attr, value) {
-        if (typeof value === "undefined") {//->没有传递value值->"获取"
-            return document.documentElement[attr] || document.body[attr];
-        }
-        //->"设置"
-        document.documentElement[attr] = value;
-        document.body[attr] = value;
-    }
-    console.log(win("clientHeight"));
-    win("scrollTop", 0);
+//    function win(attr, value) {
+//        if (typeof value === "undefined") {//->没有传递value值->"获取"
+//            return document.documentElement[attr] || document.body[attr];
+//        }
+//        //->"设置"
+//        document.documentElement[attr] = value;
+//        document.body[attr] = value;
+//    }
+//    console.log(win("clientHeight"));
+//    win("scrollTop", 0);
 </script>
 </body>
 </html>

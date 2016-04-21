@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+
+
+    var unils =(function(likeary){//使用闭包来保护里面的变量不会干扰到其它区域的变量
+        if(typeof likeary ==="undefined"){
+            throw new Error("参数不合法");
+        }
+        try{
+            ary=Array.prototype.slice(likeary,0)
+        }catch(e){
+            var ary=[];
+            for(var i= 0,len=likeary.length;i<len;i++){
+                ary[ary.length]=likeary[i];
+            }
+
+        }
+        return ary;
+    })();
+</script>
+</body>
+</html>

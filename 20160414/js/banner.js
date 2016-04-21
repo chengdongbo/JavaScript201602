@@ -29,6 +29,7 @@
             str += '<div><img src="" trueImg="' + jsonData[0]["img"] + '"/></div>';
         }
         bannerInner.innerHTML = str;
+
         count = jsonData.length + 1;
         utils.css(bannerInner, "width", count * 1000);
 
@@ -49,6 +50,7 @@
             ~function (i) {
                 var curImg = imgList[i];
                 var oImg = new Image;
+                console.log(curImg.getAttribute("trueImg"));
                 oImg.src = curImg.getAttribute("trueImg");
                 oImg.onload = function () {
                     curImg.src = this.src;

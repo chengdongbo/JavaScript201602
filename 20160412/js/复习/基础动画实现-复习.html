@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head >
+    <meta charset="UTF-8">
+    <title>基础动画</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #odiv{
+            width:200px;
+            height:200px;
+            background-color: #ff3333;
+            position: absolute;
+            top:0px;
+            left:0px;
+
+        }
+    </style>
+</head>
+<body>
+
+<div  class="odiv" id="odiv">
+</div>
+
+<script type="text/javascript" src="uiltsC.js"></script>
+<script type="text/javascript">
+    var duration = 500,interval = 10,target=null;
+    var obox = document.getElementById("odiv");
+    var oBoxC= uiltsC.win("clientWidth"),oboxWid = uiltsC.getCss(obox,"width");
+    target =oBoxC- oboxWid;
+    var step = target/duration*interval;
+
+//    var timer = window.setInterval(function(){
+//        var curLeft = uiltsC.getCss(obox,"left");
+//        curLeft+=step;
+//        obox.style.left=curLeft+"px";
+//        if(curLeft+step>=target){
+//            obox.style.left = target+"px";
+//            clearInterval(timer);
+//            return;
+//        }
+//    },interval)
+
+    var timer = null;
+    function move(){
+        window.clearTimeout(timer)
+        var curLeft = uiltsC.getCss(obox,"left");
+        curLeft += step;
+        obox.style.left=curLeft+"px";
+        if(curLeft+step>=target){
+            obox.style.left = target+"px";
+            return;
+        }
+        timer = window.setTimeout(move,10);
+    }
+    move();
+
+
+
+</script>
+</body>
+</html>

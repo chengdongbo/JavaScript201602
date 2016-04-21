@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+//    function fn(i){
+//        return function (n) {
+//            console.log(n*(++i));
+//        }
+//    }
+//
+//    var f=fn(2);
+//    f(3);
+//    fn(7)(8);
+
+//    var num=1;
+//    var obj ={num:1};
+//    obj.fn=(function ())
+
+//    console.log(2.toString());
+//    console.log(typeof(20+undefined));
+
+//    var obj={name:"zhufeng"};
+//    console.dir(obj);
+//    console.dir(obj.__proto__.constructor.__proto__);
+
+//    var obj = {name:"zhufeng"};
+//    function fn(){
+//        console.log(this);
+//    }
+
+//    var ary=[12,23,14,25,13,16]
+
+//    var max=min=ary[0];
+//    for(var i= 1,len=ary.length;i<len;i++){
+//        var cur=ary[i];
+//        cur>max?max = cur:null;
+//        cur<min?min = cur:null;
+//    }
+//    console.log(max,min);
+
+    //console.log(eval("Math.max("+ary.toString()+")"));//eval()是把字符串转化为一个js代码执行，所以想办法拼接一个字符串出来，
+    //
+
+// var ary=[1,10,9.9,9.8,9.7]//从arguments不是类数组入手
+//    function avgfn(){
+//        var ary=[];
+//        for (var i= 0,len=arguments.length;i<len;i++){
+//            ary[ary.length]=arguments[i];
+//        }
+//        ary.sort(function (a, b) {
+//            return(a-b);
+//        });
+//        ary.pop();
+//        ary.shift();
+//        return (eval(ary.join("+"))/ary.length).toFixed(2);
+//    }
+//    var res=avgfn(1,10,9.9,9.8,9.7);
+//    console.dir(res);
+
+    //使用上述for循环的方法可以优化，其本质就是把数组克隆一份一样的，提到复制一份一样的，能够想到数
+
+//ary.sort(function(a,b){
+//    return(a-b)
+//})
+//    ary.pop();
+//    [].shift().call(arguments);
+
+    console.dir([].pop);
+    //利用的是arguments不可以用sort方法，是因为这个不是数组类，其所属类的原型上没有这个方法，那我们可以直接让他的__proto__指向一个
+    //数组的原型，那么arguments就可以直接用这个方法了
+
+</script>
+</body>
+</html>

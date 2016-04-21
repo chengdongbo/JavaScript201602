@@ -58,7 +58,7 @@
     //    console.log(getCss(box, "float"));
     //    console.log(getCss(box, "border"));
 
-    //第二次升级：有些样式属性在不同浏览器中是不兼容的,例如:opacity
+    //第二次升级：有些样式属性在不同浏览器中是不兼容的,例如
     function getCss(curEle, attr) {
         var val = null, reg = null;
         if ("getComputedStyle" in window) {
@@ -77,6 +77,9 @@
         return reg.test(val) ? parseFloat(val) : val;
     }
     console.log(getCss(box, "opacity"));
+
+
+
 </script>
 </body>
 </html>
