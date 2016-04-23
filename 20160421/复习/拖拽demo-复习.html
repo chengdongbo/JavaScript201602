@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head l>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        html,body,div{
+            margin: 0;
+            paddig:0;
+        }
+        #mark{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100px;
+            height:100px;
+            background-color: #11c900;
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+<div id="mark"></div>
+
+<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+    $mark=$("#mark");
+    var clientW = document.documentElement.clientWidth||document.body.clientWidth, clientH=document.documentElement.clientHeight||document.body.clientHeight;
+    var markW =$mark.outerWidth(),markH=$mark.outerHeight();
+    //定位块
+    $mark.css({
+        top:(clientH-markH)/2,
+        left:(clientW-markW)/2
+    })
+
+    $mark.on("mousedown",mouseDown);
+
+    function mouseDown(e){
+        console.log("downok");
+        $(this).attr({//attr 是设置元素的自定义属性的，prop是设置元素的自带属性的
+            strX: e.clientX,
+            strY: e.clientY,
+            strL:parseFloat($(this).css("left")),
+            strT:parseFloat($(this).css("top"))
+        })
+
+        if(this.setCapture){//如果是ie浏览器 ，有这个把两者绑定起来
+            this.setCapture();
+            $(this).on("mousemove",mouseMove).on("mouseup",up);//解决的是放开之后第二次move事件没有了
+        }
+
+        //兼容谷歌浏览器
+        $(document).on("mousemove",mouseMove.bind(this)).on("mouseup",up.bind(this));
+
+        console.log(mouseMove.bind(this));
+
+    }
+
+    function mouseMove(e){
+
+        var changX= e.clientX-$(this).attr("strX"),
+                changY= e.clientY-$(this).attr("strY");
+       var  curL=parseFloat($(this).attr("strL"))+changX;
+        var curT=parseFloat($(this).attr("strT"))+changY;
+
+        var minL= 0,minT= 0,maxT=clientH-markH,maxL=clientW-markW;
+        curL= curL<=minL?minL:(curL>=maxL?maxL:curL);
+        curT= curT<=minT?minT:(curT>=maxT?maxT:curT);
+
+        $(this).css({
+            top:curT,
+            left:curL
+        })
+    }
+
+    function up(e){
+        if(this.releaseCapture){
+            this.releaseCapture();
+            $(this).off("mousemove",mouseMove).off("mouseup",up);
+        }
+
+        $(document).off("mousemove",mouseMove.bind(this)).off("mouseup",up.bind(this));
+    }
+
+</script>
+</body>
+</html>
