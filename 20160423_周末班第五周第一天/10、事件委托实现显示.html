@@ -63,8 +63,8 @@
 
     document.body.onmouseover = function (e) {
         e = e || window.event;
+        console.dir(e);
         var curTar = e.target || e.srcElement;
-
         //->如果事件源是BOX:显示详细信息
         if (curTar.id === "box") {
             utils.addClass(curTar, "bg");

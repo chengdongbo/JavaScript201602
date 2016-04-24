@@ -70,7 +70,10 @@
 
     }
 
+
+
     function move(e) {
+
         var changeX = e.clientX - $(this).attr("strX");
         var changeY = e.clientY - $(this).attr("strY");
         var curL = parseFloat($(this).attr("strL")) + changeX;
@@ -92,6 +95,7 @@
             return;
         }
         //$(document).off("mousemove", move).off("mouseup", up); ->绑定的时候绑上去的方法是move.bind执行的结果,移除的时候也应该是执行bind的结果才对,现在不是,所以移除不掉
+
         $(document).off("mousemove", this.MOVE).off("mouseup", this.UP);
     }
 
@@ -103,6 +107,9 @@
             callBack.apply(context, outerArg.concat(innerArg));
         }
     }
+
+
+
 </script>
 </body>
 </html>

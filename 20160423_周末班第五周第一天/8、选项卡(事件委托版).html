@@ -105,6 +105,7 @@
         allTabBox[i].onclick = function (e) {
             e = e || window.event;
             var curTar = e.target || e.srcElement;
+            console.dir(curTar);
 
             //->通过条件确定我们点击的是页卡区域的LI
             if (curTar.tagName.toUpperCase() === "LI" && curTar.parentNode.getAttribute("zhufengFlag") === "firUl") {

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head >
+    <meta charset="UTF-8">
+    <title>菜单的显示和隐藏</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+            font-size: 14px;
+            font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+        }
+        .box{
+            width:140px;
+            height:40px;
+            line-height: 40px;
+            position:absolute;
+            top:40px;
+            right:100px;
+        }
+        .box .del{
+            display: none;
+            width:370px;
+            height:70px;
+            position:absolute;
+            top:40px;
+            right:0;
+            border:1px solid #999999;
+        }
+        .box span{
+            display: block;
+            width:170px;
+            height:40px;
+            position: absolute;
+            top:-1px;
+            right:0;
+            border:1px solid #999999;
+            text-align: center;
+            background:#fff;
+            cursor: pointer;
+        }
+        .box.bg span{
+            border-bottom-color:#fff;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="del" id="del"></div>
+    <span>我的购物车</span>
+</div>
+
+<script charset="utf-8" type="text/javascript" src="../js/utils.min.js"></script>
+<script type="text/javascript">
+
+    var box = document.getElementById("box");
+    var del = document.getElementById("del");
+
+
+    box.onmouseenter=function (){
+        utils.addClass(this,"bg");
+        utils.css(del,"display","block");
+        console.log("ok");
+    }
+
+
+    box.onmouseleave=function(){
+        utils.removeClass(this,"bg");
+        utils.css(del,"display","none");
+    }
+    
+</script>
+</body>
+</html>

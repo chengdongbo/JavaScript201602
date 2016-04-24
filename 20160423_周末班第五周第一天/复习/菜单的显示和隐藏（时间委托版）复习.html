@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head >
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+            font-size: 14px;
+        }
+        html,body{
+            width:100%;
+            height:100%;
+            overflow: hidden;
+        }
+        .box{
+            z-index: 10;
+            width:140px;
+            height:40px;
+            position:absolute;
+            top:40px;
+            right:140px;
+            border:1px solid #999999;
+            text-align: center;
+            line-height: 40px;
+            background: #ffffff;
+            cursor: pointer;
+        }
+        .del{
+            display: none;
+            width:370px;
+            height:70px;
+            border:1px solid #999999;
+            position: absolute;
+            top:81px;
+            right:140px;
+        }
+        .bg{
+            border-bottom-color: #FFFFFF;
+        }
+    </style>
+</head>
+<body id="body">
+<div class="box" id="box">我的购物车</div>
+<div class="del" id="del"></div>
+
+<script type="text/javascript" charset="utf-8" src="../js/utils.min.js"></script>
+<script type="text/javascript">
+    var body = document.getElementById("body");
+    console.log(utils.css(body,"height"));
+    var box = document.getElementById("box");
+    var del = document.getElementById("del");
+
+//    del.onmouseover=function(e){
+//        e=e||window.event;
+//        e.stopPropagation? e.stopPropagation(): e.cancelBubble=true;
+//    }
+
+    document.body.onmouseover = function(e){
+        e= e||window.event;
+        console.dir(e);
+        var curTar= e.target|| e.srcElement;
+
+        if(curTar.id==="del"){
+                    e=e||window.event;
+        e.stopPropagation? e.stopPropagation(): e.cancelBubble=true;
+            return
+        }
+        if(curTar.id==="box"){
+            utils.addClass(curTar,"bg");
+            utils.css(del,"display","block");
+            return
+        }
+        utils.removeClass(box,"bg");
+        utils.css(del,"display","none");
+    }
+</script>
+</body>
+</html>
