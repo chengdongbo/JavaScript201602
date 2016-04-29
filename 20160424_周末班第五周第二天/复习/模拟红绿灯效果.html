@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head >
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        html,body,div{
+            margin:0;
+            padding:0;
+        }
+        .box{
+            width:200px;
+            height:200px;
+            border:1px solid lightblue;
+            margin:10px auto;
+            background-color:red;
+        }
+
+        #box2{
+            width:50px;
+            height:50px;
+            position:absolute;
+            top:250px;
+            left:0;
+            background-color:red;
+            border:1px solid red:
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box"></div>
+<div class="box2" id="box2"></div>
+
+<script type="text/javascript">
+
+    var oBox=document.getElementById("box");
+
+    function on(ele, type, fn) {
+
+
+        if (ele.addEventListener) {
+            ele.addEventListener(type, fn, false);
+            return
+        }
+
+        if (!ele["aEvent" + type]) {
+            ele["aEvent" + type] = [];
+            ele.attachEvent("on" + type, function () {
+                fire.call(ele);
+            })
+        }
+
+        var a = ele["aEvent" + type];
+        console.log(a);
+        for (var i = 0; i < a.length; i++) {
+            if (a[i] === fn) {
+                return
+            }
+        }
+        a.push(fn);
+    }
+
+
+    function fire() {
+        var e=window.event;
+        var type= e.type;
+        if(!e.target){
+
+        }
+        var a = this["aEvent" + type];
+        if (a) {
+            for (var i = 0; i < a.length; i++) {
+                if (a[i] === fn) {
+                    if (typeof a[i] === "function") {
+                        a[i].call(this);
+                    } else {
+                        a.splice(i, 1);
+                        i--;
+                    }
+                }
+            }
+        }
+    }
+
+    function off(ele, type, fn) {
+        if (ele.removeEventListener) {
+            ele.removeEventListener(type, fn, false);
+            return
+        }
+
+        var a = ele["aEvent" + type];
+        if (a) {
+            for (var i = 0; i < a.length; i++) {
+                if (a[i] === fn) {
+                    a[i] = null;
+                }
+            }
+        }
+    }
+
+
+    function fn(){
+        alert("1");
+    }
+
+    on(oBox,"click",fn);
+</script>
+</body>
+</html>

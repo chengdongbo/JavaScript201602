@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head l>
+    <meta charset="UTF-8">
+    <title>树形结构菜单jQuery版</title>
+    <style type="text/css">
+        html,body,ul,li,em,span{
+            margin:0;
+            padding:0;
+            font-size:14px;
+            font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .box {
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #999999;
+            background: #FF6500;
+            background: -webkit-linear-gradient(top left, lightgreen, lightcoral, lightblue);
+            background: -moz-linear-gradient(top left, lightgreen, lightcoral, lightblue);
+            background: -o-linear-gradient(top left, lightgreen, lightcoral, lightblue);
+            background: linear-gradient(top left, lightgreen, lightcoral, lightblue);
+        }
+        .box li{
+            width:180px;
+            position:relative;
+
+        }
+
+        .box em{
+            position:absolute;
+            top:5px;
+            left:0;
+            width:16px;
+            height:16px;
+            background-image: url("../img/icon.png");
+            background-position: -59px -28px;
+        }
+        .box  em.bg{
+            background-position:-42px -28px;
+        }
+        .box span{
+            display: block;
+            margin:7px 0 0 20px;
+            height:25px;
+            line-height: 25px;
+        }
+        .box .levelTwo{
+            display: none;
+            margin-left: 20px;
+        }
+        .box .levelThree{
+            display: none;
+            margin-left:40px;
+        }
+        .box .levelFour{
+            display: none;
+            margin-left:60px;
+        }
+        .cursor{
+            cursor:pointer;
+        }
+    </style
+</head>
+<body>
+<ul class="box">
+    <li>
+        <em></em><span>1-1</span>
+        <ul class="levelTwo">
+            <li><span>2-1</span></li>
+            <li>
+                <em></em><span>2-2</span>
+                <ul class="levelThree">
+                    <li><span>3-1</span></li>
+                    <li><span>3-2</span></li>
+                    <li><span>3-3</span></li>
+                </ul>
+            </li>
+            <li>
+                <em></em><span>2-3</span>
+                <ul class="levelThree">
+                    <li><span>3-1</span></li>
+                    <li>
+                        <em></em><span>3-2</span>
+                        <ul class="levelFour">
+                            <li><span>4-1</span></li>
+                            <li><span>4-2</span></li>
+                            <li><span>4-3</span></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <em></em><span>1-2</span>
+        <ul class="levelTwo">
+            <li><span>2-1</span></li>
+            <li>
+                <em></em><span>2-2</span>
+                <ul class="levelThree">
+                    <li><span>3-1</span></li>
+                    <li><span>3-2</span></li>
+                    <li><span>3-3</span></li>
+                </ul>
+            </li>
+            <li>
+                <em></em><span>2-3</span>
+                <ul class="levelThree">
+                    <li><span>3-1</span></li>
+                    <li>
+                        <em></em><span>3-2</span>
+                        <ul class="levelFour">
+                            <li><span>4-1</span></li>
+                            <li><span>4-2</span></li>
+                            <li><span>4-3</span></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    </li>
+</ul>
+
+
+<script charset="utf-8" type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+
+    var $box=$(".box");
+    $box.find("li").each(function(index,item){
+        var $boxSpan=$(item).children("span");
+        var $boxEm=$(item).children("em");
+        if($boxEm.length>0){
+            $boxEm.addClass("cursor");
+            $boxSpan.addClass("cursor");
+        }
+    })
+
+    $box.on("click",function(e){
+        var curTar= e.target;
+        if(curTar.tagName.toUpperCase()==="SPAN"){
+            commonFn($(curTar));
+        }
+        if(curTar.tagName.toUpperCase()==="EM"){
+            commonFn($(curTar).next())
+        }
+    })
+
+    function commonFn($curTar){
+        console.log($curTar);
+        var $next=$curTar.next();
+        var $prevEm=$curTar.prev();
+//        if($next){
+//            var isBlock=$next.css("display");
+//            if(isBlock==="block"){
+//                $next.css("display","none");
+//                $prevEm.removeClass("bg");
+//                $next.find("em").removeClass("bg");
+//                $next.find("ul").css("display","none");
+//            }else{
+//                $next.css("display","block");
+//                $prevEm.addClass("bg");
+//            }
+//
+//        }
+
+        if($next){
+            $next.stop().toggle();
+            var isBlock=$next.css("display");
+            if(isBlock==="block"){
+                $next.find("em").removeClass("bg");
+                $next.find("ul").stop().hide();
+            }
+            $curTar.prev().toggleClass("bg");
+        }
+    }
+</script>
+</body>
+</html>
