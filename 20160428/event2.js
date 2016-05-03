@@ -1,4 +1,17 @@
 function on(ele,type,handler){
+	"selfdragstart"
+	if(/^self/.test(type)){
+		//负责登记保存
+		if(!ele["rose"+type]){
+			ele["rose"+type]=[]
+		}
+		var a=ele["rose"+type];
+		for(var i=0;i<a.length;i++){
+			if(a[i]==handler)return;	
+		}
+		a.push(handler);
+		return;	
+	}
 	if(ele.addEventListener){
 		ele.addEventListener(type,handler,false);
 		return;	
@@ -32,11 +45,22 @@ function fire(){
 	if(a){
 		for(var i=0;i<a.length;i++){
 			if(typeof a[i]=="function"){
-				a[i].call(this,e);
+				a[i].call(this,e);	
 			}else{
 				a.splice(i,1);
 				i--;
 			}
+		}
+	}
+}
+
+
+//负责自定义事件的发布（通知）:遍历执行on保存下来的那些方法
+function selfFire(selfType,e){//selfType事件类型,e是系统的事件
+	var a=this["rose"+selfType];
+	if(a){
+		for(var i=0;i<a.length;i++){
+			a[i].call(this,e);	
 		}
 	}
 }
@@ -57,4 +81,8 @@ function off(ele,type,handler){
 		}
 	}
 	
+}
+
+function processThis(fn,obj){
+	return function(e){fn.call(obj,e)}
 }

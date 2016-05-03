@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>照片墙</title>
+    <style type="text/css">
+        html,body,ul,li,img{
+            margin:0;
+            padding:0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        img{
+            display:block;
+            outline: none;
+        }
+        ul{
+            position:relative;
+            width:480px;
+            height:640px;
+            margin:30px auto;
+            background:lightgreen;
+            padding:5px;
+        }
+        ul li{
+            float:left;
+            margin:10px 0 0 10px;
+            width:150px;
+            height:150px;
+            background:lightpink;
+            overflow: hidden;
+            cursor: move;
+        }
+        ul li img{
+            width:100%;
+            height:100%;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li><img src="../img/1.png" /></li>
+    <li><img src="../img/2.png" /></li>
+    <li><img src="../img/3.png" /></li>
+    <li><img src="../img/4.png" /></li>
+    <li><img src="../img/5.png" /></li>
+    <li><img src="../img/6.png" /></li>
+    <li><img src="../img/7.png" /></li>
+    <li><img src="../img/8.png" /></li>
+    <li><img src="../img/9.png" /></li>
+    <li><img src="../img/10.png" /></li>
+    <li><img src="../img/11.png" /></li>
+    <li><img src="../img/12.png" /></li>
+</ul>
+
+<script charset="utf-8" type="text/javascript" src="../js/eventcheng.js"></script>
+<script charset="utf-8" type="text/javascript" src="../js/Drag-oopcheng.js"></script>
+<script charset="utf-8" type="text/javascript" src="../js/animate.js"></script>
+<script type="text/javascript">
+    oLis=document.getElementsByTagName("li");
+    for(var i=oLis.length-1;i>=0;i--){
+        var curLi=oLis[i];
+        curLi.l=curLi.offsetLeft;
+        curLi.t=curLi.offsetTop;
+        curLi.style.left=curLi.l+"px";
+        curLi.style.top=curLi.t+"px";
+        curLi.style.position="absolute";
+        curLi.style.margin=0;
+        new Drag(curLi).on("selfDragStart",increaseIndex).on("selfDrag",text).on("selfDragEnd",changPosition);
+    }
+
+
+    var Index=0;
+    function increaseIndex(){
+        this.ele.style.zIndex=++Index;
+    }
+
+    function goBack(){
+        animate(this.ele,{left:this.ele.l,top:this.ele.t},30,3);
+    }
+
+
+    function hitText(curBox,thatBox){
+        if(curBox.offsetLeft+curBox.offsetWidth<thatBox.offsetLeft||curBox.offsetLeft>thatBox.offsetLeft+thatBox.offsetWidth||curBox.offsetTop>thatBox.offsetTop+thatBox.offsetHeight||curBox.offsetTop+curBox.offsetHeight<thatBox.offsetTop){
+            return false
+        }else{
+            return true
+        }
+    }
+
+    function text(){
+        this.ele["hitTrue"]=[];
+        for(var i=0;i<oLis.length;i++){
+            var curLi=oLis[i];
+            if(curLi===this.ele){//这个是为了不让当前这一项也背景颜色也变化；
+                continue;
+            }
+            if(hitText(this.ele,curLi)){
+                curLi.style.backgroundColor="red";
+                this.ele["hitTrue"].push(curLi);
+            }else{
+                curLi.style.backgroundColor="lightpink";
+            }
+        }
+    }
+
+    function changPosition(){
+        var a=this.ele["hitTrue"];
+        if(a&& a.length>0){
+            for(var i=0;i< a.length;i++){
+                var curBox=a[i];
+                a[i].distance=Math.pow((this.ele.offsetTop-curBox.offsetTop),2)+Math.pow((this.ele.offsetLeft-curBox.offsetLeft),2)
+            }
+
+            a.sort(function(a,b){
+                return a.distance- b.distance
+            });
+
+            var shorest= a[0];
+
+            shorest.style.backgroundColor="lightblue";
+
+            this.ele.style.left=shorest.l+"px";
+            this.ele.style.top=shorest.t+"px";
+            shorest.style.left=this.ele.l+"px";
+            shorest.style.top=this.ele.t+"px";
+
+            for(var k=0;k< a.length;k++){
+                a[k].style.backgroundColor="lightpink";
+            }
+
+            var l=this.ele.l,t=this.ele.t;
+            this.ele.l=shorest.l;
+            this.ele.t=shorest.t;
+            shorest.l=l;
+            shorest.t=t;
+
+            this.ele["hitTrue"]=null;
+        }else{
+            animate(this.ele,{left:this.ele.l,top:this.ele.t},30,4);
+        }
+
+    }
+</script>
+</body>
+</html>

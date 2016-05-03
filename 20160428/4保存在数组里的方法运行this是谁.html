@@ -11,9 +11,9 @@
 <script>
 var a=[1,2,3,function(){alert(this)}];
 a[3]();
-//var obj={a:1,b:2,c:function(){alert(this==obj)},9:function(){alert(this==obj)}}
-//obj.c();
-//obj["c"]();
-//obj[9]();
-////obj.9();
+var obj={a:1,b:2,c:function(){alert(this==obj)},9:function(){alert(this==obj)}}
+obj.c();
+obj["c"]();
+obj[9]();
+//obj.9();
 </script>

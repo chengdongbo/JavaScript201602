@@ -32,21 +32,6 @@ function down(e){
 		on(this,"mousemove",move);
 		on(this,"mouseup",up);
 	}else{
-		/*
-		this;
-		123;
-		"abc"
-		
-		//生成一个新的方法：让原来的方法在功能上不变，但是运行的时候，this关键字指向指定的对象
-		//var _this=this;
-		//this.MOVE=function(e){move.call(_this,e);this}
-		//this.UP=function(e){up.call(_this,e)}
-		function processThis(fn,obj){
-			return function(e){fn.call(obj,e)}
-		}
-		this.MOVE=processThis(move,this);
-		this.UP=processThis(up,this);
-		*/
 		
 		//Function.prototype.bind功能相当于上边定义的processThis方法
 		this.MOVE=move.bind(this);
@@ -58,10 +43,36 @@ function down(e){
 	
 	e.preventDefault();
 }
+//一、两次mousemove事件之间的时间间隔大体是相等的，大约是8ms
+//二、我们可以把这个“大体相等的8ms”看成一个单位时间
+//三、“速度”其实就是单位时间产生的距离 ，现在就可以把两次mousemove事件之间，产生的距离看成速度
 
+//move方法是由mousemove事件驱动的，两次move方法正常运行之间的时间间隔就是mousemove事件的性能，就可以求证出两次mousemove之间的间隔时间是否8ms
 function move(e){
 	this.style.left=this.x+(e.pageX-this.mx)+"px";
 	this.style.top=this.y+(e.pageY-this.my)+"px";	
+	
+	//当次的时间点 new Date
+	//上一次的时间点
+	//两次时间间隔=当前的时间点-上一次的时间点
+	/*
+	if(this.prevDate){//如果存在“前女友”
+		var current=new Date
+		console.log(current-this.prevDate);
+		this.prevDate=current;
+	}else{
+		this.prevDate=new Date;	
+	}
+	*/
+	
+	//知道两次事件的间隔是大体相等的时间，那把这两次事件之间的时间，做为单位时间，求两次时间之间移动的距离--->这个距离就可以当速度
+	if(this.prevPosi){
+		this.speed=this.offsetLeft-this.prevPosi;
+		this.prevPosi=this.offsetLeft;
+	}else{
+		this.prevPosi=this.offsetLeft;	
+	}
+	
 }
 
 function up(e){
@@ -73,7 +84,8 @@ function up(e){
 		off(document,"mousemove",this.MOVE);
 		off(document,"mouseup",this.UP);	
 	}
-	
+	console.log(this.speed);
+	fly.call(this);
 }
 
 
@@ -82,4 +94,24 @@ for(var i=0;i<eles.length;i++){
 	on(eles[i],"mousedown",down);	
 }
 //6-8ms
+
+function fly(){
+	this.speed*=.97;
+	if(this.offsetLeft+this.speed>=1000){
+		this.style.left=1000+"px";
+		this.speed*=-1;
+	}else if(this.offsetLeft+this.speed<=0){
+		this.style.left=0;
+		this.speed*=-1;	
+	}else{
+		this.style.left=this.offsetLeft+this.speed+"px";
+	}
+	
+	if(Math.abs(this.speed)>=0.5)
+		window.setTimeout(fly.bind(this),30);
+	
+		
+	
+}
+
 </script>

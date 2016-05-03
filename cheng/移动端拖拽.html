@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head >
+    <meta charset="UTF-8">
+    <title>移动端拖拽</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        html,body{
+            width:100%;
+            height:100%;
+        }
+        #outer{
+            width:70%;
+            height:200px;
+            overflow: hidden;
+            margin:30px auto;
+        }
+        #inner{
+            width:500%;
+            height:100%;
+        }
+        #inner>div{
+            width:20%;
+            height:100%;
+            text-align: center;
+            line-height: 200px;
+            color:white;
+            float:left;
+        }
+        #page1{
+            background:red;
+        }
+        #page2{
+            background:blue;
+        }
+        #page3{
+            background:yellow;
+        }
+        #page4{
+            background:lightblue;
+        }
+        #page5{
+            background:lightpink;
+        }
+    </style>
+</head>
+<body>
+<div id="outer">
+    <div id="inner">
+        <div id="page1">一</div>
+        <div id="page2">二</div>
+        <div id="page3">三</div>
+        <div id="page4">四</div>
+        <div id="page5">五</div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var oInner=document.getElementById("inner");
+    var oDivs=oInner.getElementsByTagName("div");
+    console.log(oDivs)
+    Array.prototype.forEach(oDivs,function(ele,i){
+        ele.index=i;
+        ele.addEventListener("touchStart",start,false);
+        ele.addEventListener("touchMove",move,false);
+        ele.addEventListener("touchEnd",end,false);
+    })
+
+    function start(e){
+        console.log(e);
+    }
+</script>
+</body>
+</html>

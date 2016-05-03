@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        html,body{
+            width:100%;
+            height:100%;
+        }
+        .outer{
+            width:80%;
+            height: 200px;;
+            margin: 30px auto;
+            overflow: hidden;
+        }
+        .inner{
+            width:500%;
+            height:100%;
+        }
+        .inner>div{
+            width:20%;
+            height:100%;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            line-height:200px;
+            float:left;
+            -webkit-transition-duration:0.5s;
+        }
+        #page1{
+            background:lightblue;
+        }
+        #page2{
+            background:lightpink;
+        }
+        #page3{
+            background:lightgoldenrodyellow;
+        }
+        #page4{
+            background:lightcoral;
+        }
+        #page5{
+            background:lightgreen;
+        }
+    </style>
+</head>
+<body>
+<div class="outer">
+    <div class="inner" id="inner">
+        <div id="page1">一</div>
+        <div id="page2">二</div>
+        <div id="page3">三</div>
+        <div id="page4">四</div>
+        <div id="page5">五</div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var odiv=document.getElementsByClassName("inner");
+    var oBox=odiv[0].getElementsByTagName("div");//getelementsbyclassName的值是一个集合，集合在调用这个tagname方法会出现问题；
+
+
+    [].forEach.call(oBox,function(ele,i){//因为这里的obox是类数组，不能够执行使用数组的方法,所有要用call，然后犯了一个错误，就是直接使用[].prototype.forEach，这种方式来调用foreach方法，，这样是错误的【】知识数组的一个实例；实例是没有原型的，只有他的类才有原型；
+        ele.index=i;
+        ele.addEventListener("touchstart",start,false);
+        ele.addEventListener("touchmove",move,false);
+        ele.addEventListener("touchend",end,false)
+    });
+
+    function start(e){
+        this.mx= e.changedTouches[0].pageX;
+        this.x=-this.index*this.offsetWidth
+    }
+
+    function move(e){
+        var curX= e.changedTouches[0].pageX;
+        var val=curX-this.mx+this.x+"px";
+        this.parentNode.style.transform="translate("+val+",0)";
+
+        if(curX<this.mx){
+            this.nextIndex=this.index+1;
+            if(this.nextIndex>oBox.length-1){
+                this.nextIndex=oBox.length-1
+            }
+        }else if(curX>=this.mx){
+            this.nextIndex=this.index-1;
+            if(this.nextIndex<=0){
+                this.nextIndex=0;
+            }
+        }
+
+
+    }
+
+    function end(e){
+        var val=-this.nextIndex*this.offsetWidth+"px";
+        this.parentNode.style.transform="translate("+val+",0)";
+    }
+</script>
+</body>
+</html>
