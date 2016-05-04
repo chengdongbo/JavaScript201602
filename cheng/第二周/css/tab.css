@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+*{
+    margin:0;
+    padding:0;
+    font-size: 14px;
+    font-family:"\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+    -webkit-user-select: none;
+}
+
+#box{
+    padding:20px;
+    width:420px;
+    margin:10px auto;
+    border:1px solid lightblue;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px 0 #FFE0E9;
+}
+#box thead tr{
+    background:lightgreen;
+    width:100%;
+    height:30px;
+}
+#box thead tr th{
+    width:100px;
+    line-height: 30px;
+    text-align: center;
+    color:#FFFFFF;
+}
+#box thead tr th.cursor{
+    cursor: pointer;
+}
+
+#box tbody tr{
+    height:30px;
+}
+#box tbody tr.bg{
+    background:lightpink;
+}
+#box tbody tr td{
+    width:100px;
+    line-height: 30px;
+    text-align: center;
+}

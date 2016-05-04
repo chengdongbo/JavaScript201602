@@ -18,6 +18,6 @@ var utilsCheng={
     },
 
     jsonParse:function(str){
-        return "JSON" in window? json.parse(str):eval("("+str+")");
+        return "JSON" in window? JSON.parse(str):eval("("+str+")");
     }
-}
+};
