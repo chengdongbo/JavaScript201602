@@ -1,19 +1,20 @@
-/**
- * Created by CHENG on 2016/5/5.
- */
+var boxList = document.getElementById("boxList"), oLis = boxList.getElementsByTagName("li");
+//实现首页的数据绑定
 
-var boxList = document.getElementById("boxlist"), oLis = boxList.getElementsByTagName("li");
 
-+function () {
-    for (var i = 0; i < oLis.length; i++) {
+
+//->实现隔行变色&&鼠标滑过变色的效果
+~function () {
+    for (var i = 0, len = oLis.length; i < len; i++) {
         var curLi = oLis[i];
         curLi.className = i % 2 === 1 ? "bg" : null;
-        curLi.oldclass = curLi.className;
+
+        curLi.oldClass = curLi.className;
         curLi.onmouseenter = function () {
             this.className = "hov";
-        }
+        };
         curLi.onmouseleave = function () {
-            this.className = curLi.oldclass;
-        }
+            this.className = this.oldClass;
+        };
     }
 }();
