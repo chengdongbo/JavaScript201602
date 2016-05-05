@@ -1,0 +1,16 @@
+div{
+    position:absolute;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin:auto;
+    width:100px;
+    height:100px;
+    background-color: lightpink;
+}
+img{
+    display: block;
+    width:100px;
+    height:100px;
+}
