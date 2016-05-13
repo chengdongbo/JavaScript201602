@@ -1,175 +1,115 @@
 @charset "utf-8";
-* {
-    margin: 0;
-    padding: 0;
+
+/*公共样式*/
+*{
+    margin:0;
+    padding:0;
+    font-size:14px;
     font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
-    font-size: 14px;
-    color: #424242;
 }
-
-ul, li {
-    list-style: none;
+ul,li{
+    list-style:none;
 }
-
-a, a:hover, a:active, a:target, a:visited {
+a,a:hover,a:active,a:target,a:visited{
     text-decoration: none;
-    color: #424242;
+    color:#000;
+}
+span{
+    display:block;
+    width:100px;
 }
 
-input {
-    display: block;
-    outline: none;
+.w150{
+    width:150px;
 }
 
-span {
-    display: block;
-    width: 200px;
+.addBtn{
+    /*如果加position定位来控制的话，会造成脱离文档流，会和下面的内容重叠，所以这里直接把他看成一个块来考虑，使用margin来控制*/
+    display:block;
+    font-size:20px;
+    margin:10px auto;
+    text-align: left;
+    height: 30px;
+    width:800px;
 }
 
-.w60 {
-    width: 60px;
+.box{
+    width:750px;
+    margin:30px auto;
+    border:1px solid lightgray;
+    box-shadow: 3px 3px 10px 0 lightgray;
 }
-
-.w100 {
-    width: 100px;
+.box .header{
+    width:100%;
+    height:35px;
+    line-height:35px;
+    background-color:lightgrey;
 }
-
-.w280 {
-    width: 280px;
-}
-
-/*下面是INDEX页面的样式*/
-
-.addBtn {
-    display: block;
-    margin: 10px auto;
-    width: 942px;
-    height: 35px;
-    line-height: 35px;
-    font-size: 18px;
-}
-
-.addBtn:hover{
-    text-decoration: underline;
-    color: green;
-}
-
-.box {
-    margin: 10px auto;
-    padding: 20px;
-    width: 900px;
-    border: 1px solid #999;
-    box-shadow: 3px 3px 10px 0 #999;
-    overflow: hidden;
-}
-
-.head {
-    height: 35px;
-    line-height: 35px;
-    background: green;
-}
-
-.head span {
-    float: left;
-    height: 100%;
+.box .header span{
+    float:left;
+    height:100%;
+    line-height:35px ;
     text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff;
+
 }
 
-.list li {
-    height: 35px;
+
+.box .mainBody{
+    width:100%;
+}
+.box  .mainBody li{
+    height:30px;
+    line-height: 30px;
+    width:100%;
+}
+.box  .mainBody li.bg{
+    background:lightgoldenrodyellow;
+}
+.box  .mainBody li.cursor{
+    background:lightblue;
+}
+.box .mainBody li span{
+    float:left;
+    height:100%;
+    line-height:30px ;
+    text-align: center;
+
+}
+
+/*以下是addInfo的样式*/
+
+.addBox{
+    width:500px;
+    margin:20px auto;
+    border:1px solid lightgray;
+    box-shadow: 3px 3px 10px 0 lightgrey;
+}
+.addBox ul{
+    width:100%;
+}
+.addBox ul li{
+    position:relative;
+    width:100%;
+    height:35px;
     line-height: 35px;
+    margin:3px 0;
+}
+.addBox ul li div{
+    width:30%;
+    margin:2px 0;
+    text-align: center;
+    font-size:16px;
+}
+.addBox ul li input{
+    position:absolute;
+    width:50%;
+    right:100px;
+    height:31px;
+    top:2px;
+}
+.addBox .btn{
+    display:block;
+    width:60px;
+    margin:20px auto;
     cursor: pointer;
 }
-
-.list li.bg {
-    background: aliceblue;
-}
-
-.list li.hov {
-    background: lightblue;
-}
-
-.list li span {
-    float: left;
-    height: 100%;
-    text-align: center;
-}
-
-.list li span a {
-    display: inline-block;
-    margin: 0 5px;
-}
-
-/*以下是增加页面的样式*/
-.cusAdd {
-    margin: 10px auto;
-    padding: 20px;
-    width: 500px;
-    border: 1px solid #999;
-    box-shadow: 3px 3px 10px 0 #999;
-    overflow: hidden;
-}
-
-.cusAdd div {
-    height: 50px;
-    line-height: 50px;
-}
-
-.cusAdd div span, .cusAdd div input {
-    float: left;
-}
-
-.cusAdd div span {
-    width: 100px;
-    text-align: center;
-}
-
-.cusAdd div input {
-    margin-top: 8px;
-    padding: 0 10px;
-    width: 360px;
-    height: 34px;
-}
-
-#userAge {
-    width: 100px;
-    text-align: center;
-}
-
-.cusAdd .submit {
-    margin: 20px auto 0 auto;
-    width: 300px;
-    height: 35px;
-    line-height: 35px;
-    text-align: center;
-    border: 1px solid green;
-    background: lightgreen;
-    cursor: pointer;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

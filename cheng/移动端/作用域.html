@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+    function reder(){
+        var o={
+            name:'oname',
+            age:23
+        };
+
+        return function(){
+            var oj={name:'oj'};
+
+            return {
+                ge:function (){
+                    return {
+                        oj:oj,
+                        o:o,
+                        name:'xx'
+                    }
+                }
+            }
+        }
+    }
+
+    var fn1=reder();
+    var o1=fn1();
+    var o2=fn1();
+
+
+    console.log(o1.o===o2.o);
+
+    var o11=o1.ge();
+    var o22=o2.ge();
+
+
+    console.log(o1.ge===o2.ge);
+
+    console.log(o11.o,o22.o)
+    console.log(o11.o===o22.o);
+    console.log(o11.oj,o22.oj);
+    console.log(o11.oj===o22.oj);
+</script>
+
+</body>
+</html>

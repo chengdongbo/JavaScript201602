@@ -17,6 +17,7 @@ function init(query, res) {
     //->在把最新的DATA重新放入文件中
     fs.writeFileSync("./json/customerInfo.json", JSON.stringify(data));
 
+
     //->给客户端响应信息
     res.writeHead(200, {'content-type': 'application/json; charset=UTF-8'});
     res.end(JSON.stringify({code: 0, desc: "删除成功!", data: obj}));
