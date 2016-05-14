@@ -35,7 +35,7 @@
             background: aliceblue;
         }
     </style>
-    <script src="jsonp.js"></script>
+    <script src="jquery-1.11.3.min.js"></script>
 <body>
 <label>搜索：<input id="search" type="search" placeholder="请输入您要搜索的关键字" autofocus></label>
 <input type="button" id="searchBtn" value="百度一下">
@@ -116,6 +116,14 @@
                 ul.appendChild(fragement);
             })
         }
+
+//        $.ajax({
+//            async:false,
+//        url:'http://suggestion.baidu.com/su',
+//            dataType:jsonp,
+//            jsonp:'callback',
+//
+//        });
 
         // 给ul绑定一个click事件 利用事件冒泡获取点击的li
         ul.onclick = function (e) {

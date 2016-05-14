@@ -13,12 +13,12 @@
             age:23
         };
 
-        return function(){
-            var oj={name:'oj'};
+        return function(){//fn1
 
+            var oj={name:'oj'};
             return {
                 ge:function (){
-                    return {
+                    return {//o11 o22
                         oj:oj,
                         o:o,
                         name:'xx'
@@ -32,18 +32,10 @@
     var o1=fn1();
     var o2=fn1();
 
-
-    console.log(o1.o===o2.o);
-
     var o11=o1.ge();
     var o22=o2.ge();
 
-
-    console.log(o1.ge===o2.ge);
-
-    console.log(o11.o,o22.o)
     console.log(o11.o===o22.o);
-    console.log(o11.oj,o22.oj);
     console.log(o11.oj===o22.oj);
 </script>
 

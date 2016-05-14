@@ -44,23 +44,23 @@
 
         @-webkit-keyframes moveFir {
             from {
-                -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
+                -webkit-transform: rotate(0deg) scale(2);
+                transform: rotate(0deg) scale(2);
             }
             to {
-                -webkit-transform: rotate(360deg);
-                transform: rotate(360deg);
+                -webkit-transform: rotate(360deg) scale(2);
+                transform: rotate(360deg) scale(2);
             }
         }
 
         @keyframes moveFir {
             from {
-                -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
+                -webkit-transform: rotate(0deg) scale(2);
+                transform: rotate(0deg) scale(2);
             }
             to {
-                -webkit-transform: rotate(360deg);
-                transform: rotate(360deg);
+                -webkit-transform: rotate(360deg) scale(2);
+                transform: rotate(360deg) scale(2);
             }
         }
 
@@ -104,9 +104,9 @@
     oDiv.addEventListener("click", function () {
         this.className = "move";
 
-        window.setTimeout(function () {
-            this.className = null;
-        }.bind(oDiv), 1000);
+//        window.setTimeout(function () {
+//            this.className = null;
+//        }.bind(oDiv), 1000);
     }, false);
 </script>
 </body>
