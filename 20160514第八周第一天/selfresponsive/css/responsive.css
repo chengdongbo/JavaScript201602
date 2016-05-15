@@ -1,0 +1,67 @@
+*{
+    margin:0;
+    padding:0;
+    font-size:12px;
+}
+ul{
+    list-style:none;
+}
+a{
+    text-decoration: none;
+    color:#fff;
+}
+
+/*header部分样式*/
+
+.layout{
+    position:fixed;
+    width:100%;
+    background:#fff;
+    box-shadow: 0 0 3px 3px rgba(0,0,0,0.3);
+}
+.layout .header{
+    height:80px;
+    overflow: hidden;
+    margin:0 10px;
+
+}
+.layout .header a{
+    margin-top:24px;
+    float:left;
+}
+
+.layout .header ul{
+    float:right;
+    line-height:80px;
+
+}
+.layout .header ul li{
+    float:right;
+    margin-left:10px;
+    font-size:1.2em;
+    /**中设置的样式值，要比从父级中国继承的样式中的优先级高，所以这里不能直接在父级元素上使用这个font-size值设置，只能直接对该元素来进行设置，如果在*中的设置的样式都要直接在某个元素上来设置，*/
+
+}
+
+@media all and (min-width:1000px){
+    .layout .header{
+        width:1000px;
+        margin:0 auto;
+    }
+}
+
+/*picture部分样式*/
+
+.picture{
+    padding-top: 100px;
+}
+.picture ul{
+    text-align: center;
+}
+.picture ul li{
+    display:inline-block;
+    margin-left:2%;
+}
+.service{
+    padding-top:20px;
+}

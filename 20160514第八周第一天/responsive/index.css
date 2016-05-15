@@ -18,7 +18,7 @@ html,body{
     background: #fff;
     box-shadow: 0 0 3px 3px rgba(0,0,0,0.3);
 }
-@media all and (min-width: 1000px) {/*´°¿Ú¿í¶È´óÓÚµÈÓÚ1000Ê±,Õâ¶ùµÄÑùÊ½Æğ×÷ÓÃ*/
+@media all and (min-width: 1000px) {/*çª—å£å®½åº¦å¤§äºç­‰äº1000æ—¶,è¿™å„¿çš„æ ·å¼èµ·ä½œç”¨*/
     .header {
         width: 1000px;
         margin: 0 auto;
@@ -49,94 +49,94 @@ html,body{
     display: inline-block;
     margin: 0 1%;
 }
-.service ul{
-    text-align: center;
-    padding-top: 50px;
-}
-.service ul li{
-    display: inline-block;
-    width: 263px;
-    line-height: 1.5em;
-    vertical-align: top;/*¶¥¶Ë¶ÔÆë*/
-    background: #fff;
-    border-right: 1px solid #ccc;
-    border-left:1px solid #fff;
-}
-.service ul li h4{
-    font-weight: normal;
-    font-size: 1.2em;
-}
+/*.service ul{*/
+    /*text-align: center;*/
+    /*padding-top: 50px;*/
+/*}*/
+/*.service ul li{*/
+    /*display: inline-block;*/
+    /*width: 263px;*/
+    /*line-height: 1.5em;*/
+    /*vertical-align: top;/!*é¡¶ç«¯å¯¹é½*!/*/
+    /*background: #fff;*/
+    /*border-right: 1px solid #ccc;*/
+    /*border-left:1px solid #fff;*/
+/*}*/
+/*.service ul li h4{*/
+    /*font-weight: normal;*/
+    /*font-size: 1.2em;*/
+/*}*/
 
-.service ul li p{
-    font-size: 1em;
-}
-@media all and (max-width:999px ) {
-    .channel li{
-        max-width: 23%;/*Èç¹ûli¿í¶È´óÓÚ23%,ÔòÏÔÊ¾³É23%µÄ´óĞ¡,Èç¹ûĞ¡ÓÚ23%,ÔòÏÔÊ¾³Éli×Ô¼ºµÄ´óĞ¡*/
-    }
-    .channel li img{
-        width: 100%;
-    }
-    .channel li.watch img,.channel li.phone img{
-        max-width: 50px;
-    }
-    .service ul li {
-        width: 30%;
-        font-size: 14px;
-    }
-    .service ul li img{
-        width: 100%;
-    }
+/*.service ul li p{*/
+    /*font-size: 1em;*/
+/*}*/
+/*@media all and (max-width:999px ) {*/
+    /*.channel li{*/
+        /*max-width: 23%;/!*å¦‚æœliå®½åº¦å¤§äº23%,åˆ™æ˜¾ç¤ºæˆ23%çš„å¤§å°,å¦‚æœå°äº23%,åˆ™æ˜¾ç¤ºæˆliè‡ªå·±çš„å¤§å°*!/*/
+    /*}*/
+    /*.channel li img{*/
+        /*width: 100%;*/
+    /*}*/
+    /*.channel li.watch img,.channel li.phone img{*/
+        /*max-width: 50px;*/
+    /*}*/
+    /*.service ul li {*/
+        /*width: 30%;*/
+        /*font-size: 14px;*/
+    /*}*/
+    /*.service ul li img{*/
+        /*width: 100%;*/
+    /*}*/
 
-}
+/*}*/
 
-@media all and (max-width: 480px) {
-    .headerLayout{
-        position: absolute;
-        height: 50px;
-    }
-    .header{
-        height: 50px;
-        background: palegreen;
-    }
-    .header a{
-        margin-top: 10px;
-    }
-    .header ul{
-        width: 100%;
-        background: palegreen;
-        display: none;
-    }
-    .header ul li{
-        float: none;
-        line-height: 40px;
+/*@media all and (max-width: 480px) {*/
+    /*.headerLayout{*/
+        /*position: absolute;*/
+        /*height: 50px;*/
+    /*}*/
+    /*.header{*/
+        /*height: 50px;*/
+        /*background: palegreen;*/
+    /*}*/
+    /*.header a{*/
+        /*margin-top: 10px;*/
+    /*}*/
+    /*.header ul{*/
+        /*width: 100%;*/
+        /*background: palegreen;*/
+        /*display: none;*/
+    /*}*/
+    /*.header ul li{*/
+        /*float: none;*/
+        /*line-height: 40px;*/
 
-    }
-    .channel ul li{
-        width: 46%;
-        max-width: 100%;
-        margin: 0 2%;
-    }
-    .channel ul li.watch img,.channel ul li.phone img{
-        max-width: 100px;
-    }
-    .service ul li{
-        width: 96%;
-        padding: 2%;
-        background: #eee;
-    }
-    .service ul li h4{
-        text-align: left;
-        padding-left: 30px;
-    }
-    .service ul li p{
-        text-align: left;
-        margin:  10px 0;
-    }
-    .service ul li img{
-        width: 20px;
-        height: 20px;
-        float: left;
+    /*}*/
+    /*.channel ul li{*/
+        /*width: 46%;*/
+        /*max-width: 100%;*/
+        /*margin: 0 2%;*/
+    /*}*/
+    /*.channel ul li.watch img,.channel ul li.phone img{*/
+        /*max-width: 100px;*/
+    /*}*/
+    /*.service ul li{*/
+        /*width: 96%;*/
+        /*padding: 2%;*/
+        /*background: #eee;*/
+    /*}*/
+    /*.service ul li h4{*/
+        /*text-align: left;*/
+        /*padding-left: 30px;*/
+    /*}*/
+    /*.service ul li p{*/
+        /*text-align: left;*/
+        /*margin:  10px 0;*/
+    /*}*/
+    /*.service ul li img{*/
+        /*width: 20px;*/
+        /*height: 20px;*/
+        /*float: left;*/
 
-    }
-}
+    /*}*/
+/*}*/
