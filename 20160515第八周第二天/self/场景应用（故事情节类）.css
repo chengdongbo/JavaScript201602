@@ -1,0 +1,274 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+ul,li{
+    list-style:none;
+}
+img{
+    display:block;
+    outline: none;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#main {
+    width: 640px;
+    height: 1008px;
+    position: absolute;
+    left: 50%;
+    margin-left: -320px;
+    overflow: hidden;
+    transform-origin: top;
+}
+
+#loading {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    position: absolute;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.processBox {
+    width: 80%;
+    margin: 0 10%;
+    height: 40px;
+    background: #fff;
+    position: absolute;
+    top: 40%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.process {
+    width: 0;
+    height: 40px;
+    background: -webkit-linear-gradient(45deg, #6bbf6b 25%, #63bc63 50%, #6bbf6b 75%, #63bc63 100%);
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+
+#phone {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 9;
+    background: url("./images/phoneBg.jpg") no-repeat;
+}
+
+.phoneHeader {
+    width: 100%;
+    height: 89px;
+    background: url("./images/logo.png") no-repeat center;
+    position: absolute;
+    top: 15%;
+}
+
+.listen {
+    width: 520px;
+    height: 360px;
+    background: url("./images/phoneBtn.png") no-repeat;
+    position: absolute;
+    left: 50%;
+    margin-left: -260px;
+    bottom: 2px;
+}
+
+.listenStyle ,.listenTouch{
+    width: 170px;
+    height: 170px;
+    position: absolute;
+    left: 358px;
+    top: 143px;
+}
+
+.listenStyle {
+    border: 2px solid #0F0;
+    border-radius: 50%;
+    animation: move 1s infinite;
+    -webkit-animation: move 1s infinite ;
+    z-index: -11;
+}
+
+@keyframes move {
+     0%{
+         transform:scale(0.5);
+         -webkit-transform:scale(0.5);
+     }
+     100%{
+         transform:scale(1);
+         -webkit-transform:scale(1);
+     }
+ }
+
+@-webkit-keyframes move {
+    0%{
+        transform:scale(0.5);
+        -webkit-transform:scale(0.5);
+    }
+    100%{
+        transform:scale(1);
+        -webkit-transform:scale(1);
+    }
+}
+
+.speak{
+    width:520px;
+    height:659px;
+    background:url("./images/phoneKey.png") no-repeat;
+    position:absolute;
+    left:50%;
+    margin-left:-260px;
+    bottom:0;
+    transform: translate(0,659px);
+    -webkit-transform: translate(0,659px);
+    transition:1s;
+    -webkit-transition:1s;
+}
+.refuse{
+    width: 140px;
+    height: 140px;
+    position: absolute;
+    left:190px;
+    bottom:37px;
+}
+
+
+#message{
+    width:100%;
+    height:100%;
+    background:#eaeaea;
+    position:absolute;
+    z-index:8;
+    /*W3C 对 z-index 属性的描述中提到 在 z-index 属性仅在节点的 position 属性为 relative, absolute 或者 fixed 时生效.*/
+}
+
+.messageText{
+    width:640px;
+    height:88px;
+    background:url("./images/messageText.png") no-repeat;
+    position:absolute;
+    bottom:0;
+}
+
+#message ul li{
+    position:relative;
+    max-width:360px;
+    min-width:300px;
+    font-size:20px;
+    line-height:30px;
+    padding:10px;
+    border:2px solid #fff;
+    border-radius: 5px;
+    margin:20px 0;
+    opacity:0;
+    -webkit-transform: translate(0,20px);
+    transform: translate(0,20px);
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+#message ul li.left{
+    left:125px;
+    float:left;
+}
+#message ul li.right{
+    right:125px;
+    float:right;
+    border-color: #96b471;
+    background: #aec45c;
+}
+#message ul li img{
+    position:absolute;
+}
+#message ul li.left img:nth-of-type(1){
+    left:-10px;
+}
+#message ul li.left img:nth-of-type(2){
+    top:0;
+    left:-97px;
+}
+#message ul li.right img:nth-of-type(1){
+    right:-10px;
+}
+#message ul li.right img:nth-of-type(2){
+    top:0;
+    right:-97px;
+}
+
+#cube{
+    width:100%;
+    height:100%;
+    position:absolute;
+    z-index: 7;
+    background:url("./images/cubeBg.jpg") no-repeat;
+    perspective: 800px;
+}
+#cubeBox{
+    width: 510px;
+    height:510px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left: -255px;
+    margin-top:-255px;
+    -webkit-transform: scale(0.5) rotateX(45deg) rotateY(45deg);
+    transform: scale(0.5) rotateX(45deg) rotateY(45deg);
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 255px 255px -255px;
+    transform-origin: 255px 255px -255px;
+    transition: 1s;
+    -webkit-transition: 1s;
+}
+#cubeBox li{
+    width:100%;
+    height:100%;
+    position:absolute;
+
+}
+#cubeBox li:nth-of-type(1){
+    background:url("./images/cubeImg1.png") no-repeat;
+    left:510px;
+    -webkit-transform: rotateY(90deg);
+    transform: rotateY(90deg);
+    -webkit-transform-origin: left;
+    transform-origin: left;
+}
+#cubeBox li:nth-of-type(2){
+    background:url("./images/cubeImg2.png") no-repeat;
+    left:-510px;
+    -webkit-transform: rotateY(-90deg);
+    transform: rotateY(-90deg);
+    -webkit-transform-origin: right;
+    transform-origin: right;
+}
+#cubeBox li:nth-of-type(3){
+    background:url("./images/cubeImg3.png") no-repeat;
+    top:510px;
+    -webkit-transform: rotateX(-90deg);
+    transform: rotateX(-90deg);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+}
+#cubeBox li:nth-of-type(4){
+    background:url("./images/cubeImg4.png") no-repeat;
+    top:-510px;
+    -webkit-transform: rotateX(90deg);
+    transform: rotateX(90deg);
+    -webkit-transform-origin: bottom;
+    transform-origin: bottom;
+}
+#cubeBox li:nth-of-type(5){
+    background:url("./images/cubeImg5.png") no-repeat;
+    -webkit-transform: translateZ(-510px);
+    transform: translateZ(-510px);
+}
+#cubeBox li:nth-of-type(6){
+    background:url("./images/cubeImg6.png") no-repeat;
+    -webkit-transform: translateZ(0px);
+    transform: translateZ(0px);
+}

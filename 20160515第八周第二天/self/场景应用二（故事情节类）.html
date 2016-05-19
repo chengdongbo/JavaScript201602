@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>场景应用二（故事情节类）</title>
+    <link rel="stylesheet" href="./场景应用（故事情节类）.css"/>
+</head>
+<script type="text/javascript" src="fastclick.js"></script>
+<script type="text/javascript">
+    if('addEventListener' in document){
+        document.addEventListener('DOMContentLoaded',function(){
+            FastClick.attach(document.body);
+        }.false)
+    }
+</script>
+<body>
+<div id="main">
+
+    <div>
+        <audio src="./images/bell.mp3" id="bell" loop></audio>
+        <audio src="./images/say.mp3" id="say" loop></audio>
+        <audio src="./images/music.mp3" id="music" loop></audio>
+    </div>
+    <!--预加载模块-->
+    <div id="loading">
+        <div class="processBox">
+            <div class="process"></div>
+        </div>
+    </div>
+
+    <!-- iphone 部分-->
+    <div id="phone">
+        <div class="phoneHeader"></div>
+        <div class="listen">
+            <div class="listenStyle"></div>
+            <div class="listenTouch"></div>
+        </div>
+        <div class="speak">
+            <div class="refuse"></div>
+        </div>
+    </div>
+    
+    <!-- message 部分-->
+    <div id="message">
+        <ul>
+            <li class="left">
+                <img src="./images/messageArrow1.png" alt=""/>
+                <img src="./images/messageHead1.png" alt=""/>
+                么么哒......
+            </li>
+            <li class="right">
+                <img src="./images/messageArrow2.png" alt=""/>
+                <img src="./images/messageHead2.png" alt=""/>
+                哈哈哈哈哈哈..我是个工程师
+            </li>
+            <li class="left">
+                <img src="./images/messageArrow1.png" alt=""/>
+                <img src="./images/messageHead1.png" alt=""/>
+                么么哒......
+            </li>
+            <li class="right">
+                <img src="./images/messageArrow2.png" alt=""/>
+                <img src="./images/messageHead2.png" alt=""/>
+                哈哈哈哈哈哈..我是个工程师
+            </li>
+            <li class="left">
+                <img src="./images/messageArrow1.png" alt=""/>
+                <img src="./images/messageHead1.png" alt=""/>
+                么么哒......
+            </li>
+            <li class="right">
+                <img src="./images/messageArrow2.png" alt=""/>
+                <img src="./images/messageHead2.png" alt=""/>
+                哈哈哈哈哈哈..我是个工程师
+            </li>
+        </ul>
+        <div class="messageText"></div>
+    </div>
+
+    <div id="cube">
+        <ul id="cubeBox">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+
+</div>
+
+
+<script type="text/javascript" src="./场景应用故事情节类.js"></script>
+</body>
+</html>

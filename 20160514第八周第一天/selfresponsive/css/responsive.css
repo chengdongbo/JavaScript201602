@@ -1,67 +1,201 @@
 *{
-    margin:0;
+    margin: 0;
     padding:0;
-    font-size:12px;
 }
 ul{
     list-style:none;
 }
 a{
     text-decoration: none;
-    color:#fff;
+}
+h1,h2,h3,h4,h5{
+    font-weight: normal;
+}
+
+
+html,body{
+    width:100%;
+    height:100%;
+    font-size:12px;
+    font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
 }
 
 /*header部分样式*/
-
-.layout{
-    position:fixed;
+.headerlayout{
     width:100%;
     background:#fff;
-    box-shadow: 0 0 3px 3px rgba(0,0,0,0.3);
-}
-.layout .header{
+    position:fixed;
     height:80px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.headerlayout .header{
+    max-width:1000px;
+    margin:0 auto;
     overflow: hidden;
-    margin:0 10px;
-
 }
-.layout .header a{
-    margin-top:24px;
-    float:left;
-}
-
-.layout .header ul{
-    float:right;
+.headerlayout .header a{
     line-height:80px;
-
+    float:left;
+    padding-top:10px;
 }
-.layout .header ul li{
+.headerlayout .header a img{
+    width:100%;
+}
+.headerlayout .header ul{
     float:right;
-    margin-left:10px;
-    font-size:1.2em;
-    /**中设置的样式值，要比从父级中国继承的样式中的优先级高，所以这里不能直接在父级元素上使用这个font-size值设置，只能直接对该元素来进行设置，如果在*中的设置的样式都要直接在某个元素上来设置，*/
-
+    line-height: 80px;
+}
+.headerlayout .header ul li{
+    float:left;
+    font-size:1.3em;
+    margin-right:1em;
+    text-align:center;
 }
 
-@media all and (min-width:1000px){
-    .layout .header{
-        width:1000px;
-        margin:0 auto;
-    }
-}
+/*channel部分样式*/
 
-/*picture部分样式*/
+.channelWrap{
+    width:100%;
+    background:#fff;
+    padding:100px 0 30px 0;
+}
+.channelWrap .channel{
+    max-width:1000px;
+    margin:0 auto;
+}
+.channelWrap .channel ul{
+    text-align:center;
 
-.picture{
-    padding-top: 100px;
 }
-.picture ul{
-    text-align: center;
-}
-.picture ul li{
+.channelWrap .channel ul li{
     display:inline-block;
-    margin-left:2%;
+    margin:0 1%;
 }
-.service{
-    padding-top:20px;
+
+
+/*service 部分样式*/
+
+.serviceWrap{
+    width:100%;
+    background:#f0f0f0;
+    padding:50px 0;
+}
+.serviceWrap .service{
+    max-width:1000px;
+    margin:0 auto;
+    text-align:center;
+}
+.serviceWrap .service h3{
+    font-size:3em;
+    margin:10px auto;
+}
+.serviceWrap .service>p{
+    font-size:1.3em;
+    margin:10px auto;
+}
+.serviceWrap .service ul {
+    text-align:center;
+}
+.serviceWrap .service ul li{
+    display:inline-block;
+    width: 263px;;
+    vertical-align: top;
+
+}
+.serviceWrap .service ul li a{
+    color:#000;
+}
+
+.serviceWrap .service ul li a h5{
+    font-size:1.3em;
+    margin:5px auto;
+    line-height:15.6px;
+}
+.serviceWrap .service ul li a p{
+    line-height:12px;
+    font-size:1em;
+    margin:5px auto;
+    text-align: left;
+}
+
+@media all and (max-width: 1000px) {
+    .channelWrap .channel ul li{
+        max-width:23%;
+    }
+    .channelWrap .channel ul li img{
+        width:100%;
+    }
+    .channelWrap .channel ul li:nth-child(1) img,.channelWrap .channel ul li:nth-child(2) img{
+        max-width:50px;
+    }
+
+
+    .serviceWrap .service ul li{
+        width:30%;
+    }
+    .serviceWrap .service ul li a img{
+        width:100%;
+    }
+
+}
+
+@media all and (max-width: 480px) {
+    .headerlayout{
+        height:50px;
+        background:#FFE0E9;
+    }
+    .headerlayout .header a{
+        padding-top:10px;
+        line-height:50px;
+    }
+    .headerlayout .header ul{
+        float:none;
+        padding-top: 70px;
+        display: none;
+
+    }
+    .headerlayout .header ul li{
+        margin:0;
+        border-bottom: 1px solid lightgray;
+        float:none;
+        text-align: left;
+        padding-left: 10px;
+        line-height:50px;
+        background:#FFE0E9;
+    }
+
+    .channelWrap .channel ul li{
+        width:46%;
+        max-width:100%;
+    }
+    .channelWrap .channel ul li:nth-child(1) img,.channelWrap .channel ul li:nth-child(2) img{
+        max-width:100px;
+    }
+
+    .serviceWrap .service ul li{
+        width:100%;
+        text-align: left;
+    }
+
+    .serviceWrap .service ul li a img{
+        width:20px;
+        height:20px;
+        float:left;
+        line-height:15px;
+        margin-left: 4px;
+    }
+    .serviceWrap .service ul li a h5{
+        margin-left:27px;
+        font-size:1.4em;
+        padding-bottom: 5px;
+
+    }
+    .serviceWrap .service ul li a p{
+        font-size:1em;
+        line-height:18px;
+        margin-left: 4px;
+    }
+
+
 }

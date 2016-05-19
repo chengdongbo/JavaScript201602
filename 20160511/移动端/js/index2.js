@@ -25,6 +25,7 @@ $(
             startY=touch.pageY;
             nowIndex=$(this).index();
             $li.on('touchmove.move',function(ev){
+                ev.preventDefault();
                 var touch=ev.originalEvent.touches[0];
                 //$(this).siblings('li').hide();
                 //首先会进行上下划动的判断
