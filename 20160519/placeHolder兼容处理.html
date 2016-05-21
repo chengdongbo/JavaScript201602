@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+
+<label for="email">邮箱:</label>
+<input id="email" type="tel" placeholder="123xxxxxxxx456" size="26" />
+
+<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+    var email=document.getElementById('email');
+    var placeHolder=function(ele){
+        var placeholder=ele.getAttribute('placeholder');
+        if(ele&&!('placeholder' in document.createElement('input'))){
+
+            ele.onfocus=function(){
+                if(this.value=placeholder){
+                    this.value='';
+                }
+                this.style.color='';
+            };
+            ele.onblur=function(){
+                if(this.value===''){
+                    this.value=placeholder;
+                }
+                this.style.color="#999999";
+            };
+            if(ele.value===''){
+                console.log(placeholder);
+                ele.value=placeholder;
+            }
+            ele.style.color="#999999";
+        }
+    }
+    placeHolder(email);
+</script>
+</body>
+</html>

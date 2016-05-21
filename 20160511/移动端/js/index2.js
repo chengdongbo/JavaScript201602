@@ -27,7 +27,7 @@ $(
             $li.on('touchmove.move',function(ev){
                 ev.preventDefault();
                 var touch=ev.originalEvent.touches[0];
-                //$(this).siblings('li').hide();
+                $(this).siblings('li').hide();
                 //首先会进行上下划动的判断
                 //缩放公式：1-Math.abs(touch.pageY-startY)/viewHeight*step 0~0.25 1~0.75
                 if(touch.pageY<startY){//up

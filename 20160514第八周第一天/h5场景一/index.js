@@ -38,7 +38,6 @@ if (winW / winH <= desW / desH) {
 //2.获得上一个或者下一个的坐标,并且做过界判断
 //3.处理上下滑动的距离
 function start(e) {
-    console.log(e);
     this.startY = e.changedTouches[0].pageY;
 }
 function move(e) {
@@ -67,6 +66,7 @@ function move(e) {
     oLis[this.prevsIndex].style.webkitTransform = "translate(0," + duration + "px)";
     //处理当前这一张
     //缩放的倍数 = 1- 移动的距离/设备的高度
+    //这里的1/2要加，不然的会造成 视觉差异；
     oLis[index].style.webkitTransform = "scale("+(1-Math.abs(movePos)/winH*1/2)+") translate(0,"+movePos+"px)";
 
 }
