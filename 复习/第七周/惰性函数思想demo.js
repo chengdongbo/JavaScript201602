@@ -15,25 +15,46 @@ function fn3(){
 }
 
 
-function getMax(){
+//function getMax(){
+//    console.log('ok');
+//
+//
+//    var ary=[fn1,fn2,fn3];
+//    var max=ary[0](),maxFn=ary[0];
+//
+//    for(var i= 1;i<ary.length;i++){
+//        var cur = ary[i];
+//        if(cur()>max){
+//            max=cur();
+//            maxFn=cur;
+//        }
+//    }
+//
+//
+//    getMax=maxFn;
+//    return max;
+//}
+
+
+
+function getM(){
+
     console.log('ok');
-
-
-    var ary=[fn1,fn2,fn3];
-    var max=ary[0](),maxFn=ary[0];
-
-    for(var i= 1;i<ary.length;i++){
-        var cur = ary[i];
+    var arr=[fn1,fn2,fn3];
+    var max=arr[1](),maxFn=arr[1];
+    arr.forEach(function(){
+        var cur =arguments[0];
         if(cur()>max){
             max=cur();
             maxFn=cur;
         }
-    }
 
 
-    getMax=maxFn;
+    });
+
+    getM=maxFn;
     return max;
 }
 
-console.log(getMax());
-console.log(getMax());
+console.log(getM());
+console.log(getM());

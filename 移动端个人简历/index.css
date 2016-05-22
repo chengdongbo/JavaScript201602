@@ -1,24 +1,26 @@
 @charset "UTF-8";
 
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
 }
-ul{
+
+ul {
     list-style: none;
 }
 
-html,body{
-    width:100%;
-    height:100%;
+html, body {
+    width: 100%;
+    height: 100%;
     overflow: hidden;
 }
-.box{
-    width:640px;
-    height:960px;
+
+.box {
+    width: 640px;
+    height: 960px;
     overflow: hidden;
-    position:absolute;
-    left:50%;
+    position: absolute;
+    left: 50%;
     margin-left: -320px;
 
     transform-origin: top;
@@ -26,32 +28,128 @@ html,body{
 
 }
 
-.box ul{
-    width:100%;
-    height:100%;
+ .musicBg{
+    display:none;
+    z-index:20;
+    width:50px;
+    height:50px;
+    position:fixed;
+    top:51px;
+    right:108px;
+    background:url("./images/music.svg") no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.box ul {
+    width: 100%;
+    height: 100%;
     overflow: hidden;
 }
-.box ul li{
-    width:100%;
-    height:100%;
-    position:absolute;
+
+.box ul li {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    font-size: 50px;
+    text-align: center;
+
 }
 
-.box ul li:nth-child(1){
-    background:url("./images/b.png") no-repeat;
- }
-.box ul li:nth-child(2){
-    background:url("./images/c.png") no-repeat;
-}
-.box ul li:nth-child(3){
-    background:url("./images/d.png") no-repeat;
-}
-.box ul li:nth-child(4){
-    background:url("./images/e.png") no-repeat;
+.box ul li:nth-child(1) {
+    background: #cacaca;
 }
 
-.box ul li.zIndex{
+.box ul li:nth-child(2) {
+    background: #cacaca;
+}
+
+.box ul li:nth-child(3) {
+    background: #cacaca;
+}
+
+.box ul li:nth-child(4) {
+    background: #cacaca;
+}
+
+.box ul li.zIndex {
     z-index: 10;
 }
 
 
+/*第一屏动画效果*/
+.wrapper{
+    position:absolute;
+    width: 376px;
+    height: 373px;
+    top:50%;
+    left:50%;
+    margin-top: -283px;
+    margin-left: -186px;
+}
+
+.wrapper .a4{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background: url("./images/pagehead1.png") no-repeat;
+}
+
+.wrapper p:nth-of-type(2){
+    position:absolute;
+    width: 278px;
+    height: 150px;
+    background: url("./images/pagehead2.png") no-repeat;
+    top:50%;
+    left:50%;
+    margin-top: -75px;
+    margin-left: -139px;
+}
+.wrapper p:nth-of-type(3){
+    position: absolute;
+    bottom: 59px;
+    left: 50%;
+    margin-left: -186px;
+    width: 376px;
+    font-size: 30px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+
+.move {
+    -webkit-animation:moveFn 3s linear infinite;
+    animation:moveFn 3s linear infinite;
+}
+
+@-webkit-keyframes moveFn {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes moveFn {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.page4>p{
+    width:100%;
+    height:50px;
+    text-align: center;
+    position:absolute;
+    bottom:95px;
+    font-size:30px;
+    color:#FFFFFF;
+}
